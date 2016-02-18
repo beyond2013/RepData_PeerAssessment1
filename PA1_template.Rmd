@@ -24,6 +24,7 @@ rawdata <- read.csv("./activity.csv", header = TRUE, sep = ",", stringsAsFactors
 rawdata$date <- as.Date(rawdata$date, format="%Y-%m-%d")
 ```
 2. Histogram of the total number of steps taken each day- find in figure/plot1.png
+![Histogram of total steps taken each day](./figure/plot1.png)
 ```{r, echo=TRUE}
 by_date <- group_by(rawdata, date)
 p <- ggplot(by_date, aes(date))
@@ -44,6 +45,7 @@ by_dateNotNull  %>% summarise_each(funs(mean(., na.rm = TRUE), median(., na.rm=T
 head(by_dateNotNull)
 ```
 4. Time series plot of average number of steps taken, please see figure/plot2.png 
+![Time series plot of average steps taken](./figure/plot2.png)
 ```{r, echo=TRUE}
 # grouping rawdata by interval
 by_interval <- group_by(rawdata, interval)
@@ -83,6 +85,7 @@ filledData[, i.steps := NULL]
 sum(is.na(rawdata$steps))
 ```
 8. Histogram of the data after missing values have been filled in
+![Histogram of total steps taken each day](./figure/plot3.png)
 ```{r, echo=TRUE}
 by_date <- group_by(filledData, date)
 # Histogram of total steps taken each day
@@ -101,6 +104,7 @@ result <- by_date  %>% summarise_each(funs(mean(.), median(.)), 1)
 result
 ```
 10. Panel plot comparing average number of steps taken per 5 minute interval weekdays vs weekends
+![Panel Plot](./figure/plot4.png)
 ```{r, echo=TRUE}
 # http://stackoverflow.com/questions/28893193/creating-factor-variables-weekend-and-weekday-from-date
 #create a vector of weekdays
