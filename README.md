@@ -1,5 +1,5 @@
 ## Introduction
-
+**Forgot to add PA1_template.md file please see PA1_template.html instead**
 It is now possible to collect a large amount of data about personal
 movement using activity monitoring devices such as a
 [Fitbit](http://www.fitbit.com), [Nike
