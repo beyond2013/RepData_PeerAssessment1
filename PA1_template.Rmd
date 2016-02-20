@@ -7,7 +7,7 @@ output: html_document
 
 
 #Load required packages
-```{r, echo=TRUE}
+```{r, echo=TRUE, results='hide'}
 setwd("~/Documents/RData/Reproducible Research/RepData_PeerAssessment1")
 library(plyr)
 library(dplyr)
@@ -25,7 +25,7 @@ rawdata$date <- as.Date(rawdata$date, format="%Y-%m-%d")
 ```
 2. Histogram of the total number of steps taken each day- find in figure/plot1.png
 ![Histogram of total steps taken each day](./figure/plot1.png)
-```{r, echo=TRUE}
+```{r, echo=TRUE, fig.height=3}
 by_date <- group_by(rawdata, date)
 p <- ggplot(by_date, aes(date))
 p <- p + geom_histogram(aes(weight = steps), binwidth = 0.3)
